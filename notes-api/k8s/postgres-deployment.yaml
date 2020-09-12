@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      component: postgres
-  template:
+      component: postgres  
+  template: 
     metadata:
       labels:
-        component: postgres
+        component: postgres    
     spec:
       volumes:
         - name: postgres-storage
@@ -22,14 +22,11 @@ spec:
           ports:
             - containerPort: 5432
           volumeMounts:
-            - name: postgres-storage
+            - name:  postgres-storage
               mountPath: /var/lib/postgresql/data
               subPath: postgres
           env:
             - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-secret
-                  key: password
+              value: 63eaQB9wtLqmNBpg
             - name: POSTGRES_DB
               value: notesdb
